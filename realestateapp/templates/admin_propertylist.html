@@ -1,0 +1,33 @@
+{% extends 'admin_userlist.html' %}
+{% block content %}
+
+  <div class="container">
+      <h1>Property List</h1>
+      <br>
+    <table class="table" border="1">
+      <tr>
+        <th>User Details</th>
+        <th>Property Image</th>
+        <th>Property Details</th>
+        <th>Location Address</th>
+        <th>Price</th>
+        <th>Contact</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+      {% for x in var %}
+      <tr>
+        <td>{{x.user_id.name}}<br>{{x.user_id.email}}<br>{{x.user_id.phone}}</td>
+        <td><img src="{{x.img.url}}" width="100px" height="100px"><br>{{x.pro_type}}<br>{{x.category}}</td>
+        <td>{{x.area_measure}}<br>{{x.description}}</td>
+        <td>{{x.location}}</td>
+        <td>{{x.price}}</td>
+        <td>{{x.contact}}</td>
+        <td>{{x.status}}</td>
+        <td><a href="/admin_deleteProperty/?id={{x.id}}" class="btn btn-success">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+    </div>
+
+{% endblock %}

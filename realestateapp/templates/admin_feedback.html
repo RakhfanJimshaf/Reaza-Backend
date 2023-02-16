@@ -1,0 +1,26 @@
+{% extends 'admin_userlist.html' %}
+{% block content %}
+
+  <div class="container">
+      <h1>Feedback</h1>
+    <table class="table" border="1">
+      <tr>
+        <th>User Details</th>
+        <th>Feedback</th>
+        <th>Date</th>
+     
+
+      </tr>
+      {% for x in var %}
+      <tr>
+        <td>{{x.user_id.name}}<br>{{x.user_id.email}}</td>
+        <td>{{x.feedback}}</td>
+        <td>{{x.date}}</td>
+        
+
+      </tr>
+      {% endfor %}
+    </table>
+    </div>
+
+{% endblock %}
