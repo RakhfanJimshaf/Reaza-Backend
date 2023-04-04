@@ -12,7 +12,7 @@
         <th>Location Address</th>
         <th>Price</th>
         <th>Contact</th>
-        <th>Status</th>
+        <!-- <th>Status</th> -->
         <th></th>
       </tr>
       {% for x in var %}
@@ -23,7 +23,7 @@
         <td>{{x.location}}</td>
         <td>{{x.price}}</td>
         <td>{{x.contact}}</td>
-        <td>{{x.status}}</td>
+        <!-- <td>{{x.status}}</td> -->
         <td><a href="/admin_deleteProperty/?id={{x.id}}" class="btn btn-success">Delete</a></td>
       </tr>
       {% endfor %}

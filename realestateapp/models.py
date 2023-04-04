@@ -20,6 +20,10 @@ class tb_property(models.Model):
 	category=models.CharField(max_length=100,default='')
 	location=models.CharField(max_length=100)
 	img=models.ImageField(upload_to='pics/',default='')
+	img1=models.ImageField(upload_to='pics/',default='')
+	img2=models.ImageField(upload_to='pics/',default='')
+	img3=models.ImageField(upload_to='pics/',default='')
+	video=models.FileField(upload_to='videos/',default='')
 	area_measure=models.CharField(max_length=200)
 	price=models.CharField(max_length=100)
 	description=models.CharField(max_length=1000)
@@ -41,6 +45,7 @@ class tb_favourites(models.Model):
 	contact=models.CharField(max_length=100,default='')
 
 class tb_chat(models.Model):
+	
 	receiver_id=models.ForeignKey(tb_user,on_delete=models.CASCADE, blank=True,null=True,related_name='frds')
 	sender_id=models.ForeignKey(tb_user,on_delete=models.CASCADE, blank=True,null=True)
 	send_msg=models.CharField(max_length=500,default='',blank=True)
@@ -48,7 +53,7 @@ class tb_chat(models.Model):
 
 class tb_feedback(models.Model):
 	user_id=models.ForeignKey(tb_user,on_delete=models.CASCADE, blank=True,null=True)
-	feedback=models.CharField(max_length=100,default='')
+	feedback=models.CharField(max_length=1000,default='')
 	date=models.CharField(max_length=100,default='')
 	username=models.CharField(max_length=100,default='')
 	

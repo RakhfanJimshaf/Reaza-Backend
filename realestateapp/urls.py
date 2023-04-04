@@ -31,6 +31,7 @@ urlpatterns = [
     path('api_viewChat/',views.viewChat),
     
     #----------------ADMIN-----------------------------
+    path('',views.admin_login),
     path('login/',views.admin_login),
     path('admin_home/',views.admin_home),
     path('admin_userlist/',views.admin_userlist),

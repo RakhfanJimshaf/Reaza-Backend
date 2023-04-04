@@ -102,7 +102,16 @@ def getAllproperty(request):
 	user_id=data.get("user_id")
 	aa=tb_property.objects.all().exclude(user_id=user_id)
 	serializer = PropertySerializer(aa, many=True)
-	return Response(serializer.data)
+	data = []
+	for x in aa:
+		name = x.user_id.name
+		# data.append({'name': name})
+	for obj in serializer.data:
+		name = obj.pop('name', name)  # remove the 'name' key from the object
+		obj['name'] = name  # add the 'name' variable to the object
+		data.append(obj)
+	  # add the name as a separate dictionary to the data list
+	return Response({'data': data})
 
 @api_view(['POST'])
 def addFavourites(request):
@@ -248,7 +257,8 @@ def admin_login(request):
 		if aa:
 			for x in aa:
 				request.session['id']=x.id
-				return render(request,'admin_home.html')
+				return HttpResponseRedirect('/admin_home/')
+				# return render(request,'admin_home.html')
 		else:
 			return render(request,'admin_login.html')
 	else:
